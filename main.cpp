@@ -3,7 +3,7 @@ void teste2();
 
 int main()
 {
-    teste1(); //aaaa
+    teste1(); 
 
     return 0;
 }
