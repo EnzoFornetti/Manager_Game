@@ -39,14 +39,14 @@ int Team::getOverall()
 
 void Team::printarDados()
 {
-    cout << "Time: " << nome << " OVERALL: " << overall << endl
+    cout << nome << " - OVERALL: " << overall << endl
          << endl;
-    cout << "Jogadores:" << endl;
+    cout << "Jogadores:" << endl
+         << endl;
     for (int i = 0; i < MAX_PLAYERS; i++)
     {
         if (roster[i] != nullptr)
         {
-            cout << "- Jogador " << (i + 1) << ": ";
             roster[i]->printarDados();
         }
         else

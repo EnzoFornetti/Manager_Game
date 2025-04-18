@@ -38,7 +38,7 @@ int Player::getOverall()
 
 void Player::printarDados()
 {
-    cout << "Nome: " << nome << ", OVERALL: " << overall << endl;
+    cout << nome << ", OVERALL: " << overall << endl;
     cout << "Idade: " << idade << " anos" << endl
          << endl;
 }
