@@ -20,6 +20,7 @@ public:
     string getNome();
     int getIdade();
     int getPosicao();
+    int getOverall();
     void printarDados();
 };
 

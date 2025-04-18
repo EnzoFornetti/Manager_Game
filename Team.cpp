@@ -32,9 +32,15 @@ string Team::getNome()
     return nome;
 }
 
+int Team::getOverall()
+{
+    return overall;
+}
+
 void Team::printarDados()
 {
-    cout << "Time: " << nome << endl << endl;
+    cout << "Time: " << nome << " OVERALL: " << overall << endl
+         << endl;
     cout << "Jogadores:" << endl;
     for (int i = 0; i < MAX_PLAYERS; i++)
     {
@@ -45,7 +51,8 @@ void Team::printarDados()
         }
         else
         {
-            cout << "- Posicao " << (i + 1) << ": Vazio" << endl << endl;
+            cout << "- Posicao " << (i + 1) << ": Vazio" << endl
+                 << endl;
         }
     }
 }
@@ -61,4 +68,15 @@ void Team::adicionarPlayer(Player *player)
     }
 
     roster[player->getPosicao()] = player;
+
+    int media = 0;
+
+    for (int x = 0; x < MAX_PLAYERS; x++)
+    {
+        if (this->roster[x] != nullptr)
+        {
+            media += this->roster[x]->getOverall();
+        }
+    }
+    this->overall = media / 5;
 }

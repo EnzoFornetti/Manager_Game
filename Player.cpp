@@ -25,13 +25,20 @@ int Player::getIdade()
 {
     return idade;
 }
+
 int Player::getPosicao()
 {
     return posicao;
 }
 
+int Player::getOverall()
+{
+    return overall;
+}
+
 void Player::printarDados()
 {
-    cout << "Nome: " << nome << endl;
-    cout << "Idade: " << idade << " anos" << endl << endl;
+    cout << "Nome: " << nome << ", OVERALL: " << overall << endl;
+    cout << "Idade: " << idade << " anos" << endl
+         << endl;
 }

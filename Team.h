@@ -12,12 +12,14 @@ class Team
 private:
     string nome;
     Player** roster;
+    int overall;
 
 public:
     ~Team();
     Team(string nome);
     Player** getRoster();
     string getNome();
+    int getOverall();
     void printarDados();
     void adicionarPlayer(Player* player);
 };
