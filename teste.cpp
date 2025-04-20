@@ -1,6 +1,9 @@
-#include "Team.h"
+#include "Partida.h"
+#include <cstdlib> // rand()
+#include <ctime>   // time()
 
 using namespace std;
+void simularPartida(int pontosA, int pontosB);
 
 void teste1()
 {
@@ -37,6 +40,10 @@ void teste1()
     t2->adicionarPlayer(p9);
     t2->adicionarPlayer(p10);
     t2->printarDados();
+
+    Partida* partida1 = new Partida(t1, t2);
+
+    partida1->printarDados();
 }
 
 void teste2()
