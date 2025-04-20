@@ -29,13 +29,6 @@ public:
     int getPlacarT1();
     int getPlacarT2();
 
-    void setT1(Team* t);
-    void setT2(Team* t);
-    void setVencedor(Team* t);
-    void setPerdedor(Team* t);
-    void setPlacarT1(int p);
-    void setPlacarT2(int p);
-
 };
 
 #endif

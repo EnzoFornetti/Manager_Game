@@ -89,9 +89,3 @@ Team *Partida::getPerdedor() { return perdedor; }
 int Partida::getPlacarT1() { return placarT1; }
 int Partida::getPlacarT2() { return placarT2; }
 
-void Partida::setT1(Team *t) { t1 = t; }
-void Partida::setT2(Team *t) { t2 = t; }
-void Partida::setVencedor(Team *t) { vencedor = t; }
-void Partida::setPerdedor(Team *t) { perdedor = t; }
-void Partida::setPlacarT1(int p) { placarT1 = p; }
-void Partida::setPlacarT2(int p) { placarT2 = p; }
