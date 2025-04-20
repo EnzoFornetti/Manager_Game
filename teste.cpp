@@ -41,7 +41,7 @@ void teste1()
     t2->adicionarPlayer(p10);
     t2->printarDados();
 
-    Partida* partida1 = new Partida(t1, t2);
+    Partida* partida1 = new Partida(t1, t2, 2);
 
     partida1->printarDados();
 }
