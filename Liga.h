@@ -10,16 +10,20 @@ class Liga : public Campeonato
 private:
     int numeroDeTurnos;
     int mdx;
-    int turno;
     Partida** partidasDaRodada;
     int turno;
     int rodada;
-    int vitorias[];
+    int* vitorias;
+    bool** partidasFeitas;
+    bool* jogouNessaRodada;
 
 public:
     Liga(string nome, Team** times, int numeroDeTimes, int numeroDeTurnos, int mdx);
 
+    Team** getTimes();
+
     void simularRodada() override;
+    void imprimirTabela();
 };
 
 #endif
