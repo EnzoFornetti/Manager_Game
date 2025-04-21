@@ -38,7 +38,7 @@ void Liga::simularRodada()
 {
     if (turno > numeroDeTurnos)
     {
-        cout << "\nTodos os turnos foram concluídos.\n";
+        cout << endl << "Todos os turnos foram concluídos." << endl;
         return;
     }
 
@@ -63,9 +63,8 @@ void Liga::simularRodada()
         jogouNessaRodada[i] = false;
     }
 
-    cout << "\n Turno " << turno << " - Rodada " << (rodada + 1) << "\n";
+    cout << endl << "Turno " << turno << " - Rodada " << (rodada + 1) << endl;
 
-    // Libera a rodada anterior (se necessário)
     if (partidasDaRodada != nullptr)
     {
         for (int i = 0; i < numeroDeTimes / 2; i++)
@@ -122,47 +121,43 @@ void Liga::imprimirTabela()
     cout << "\n TABELA DE CLASSIFICACAO\n";
     cout << "----------------------------------------\n";
 
-    Team **timesOrdenados = new Team*[numeroDeTimes];
-    int *vitoriasOrdenadas = new int[numeroDeTimes];
+    Team **ranking = new Team*[numeroDeTimes];
+    int *pontos = new int[numeroDeTimes];
 
     for (int i = 0; i < numeroDeTimes; i++)
     {
-        timesOrdenados[i] = times[i];
-        vitoriasOrdenadas[i] = vitorias[i];
+        ranking[i] = times[i];
+        pontos[i] = vitorias[i];
     }
 
     for (int i = 0; i < numeroDeTimes - 1; i++)
     {
-        int maxIndex = i;
+        int melhor = i;
         for (int j = i + 1; j < numeroDeTimes; j++)
         {
-            if (vitoriasOrdenadas[j] > vitoriasOrdenadas[maxIndex])
-            {
-                maxIndex = j;
-            }
+            if (pontos[j] > pontos[melhor])
+                melhor = j;
         }
 
-        if (maxIndex != i)
+        if (melhor != i)
         {
-            int tempV = vitoriasOrdenadas[i];
-            vitoriasOrdenadas[i] = vitoriasOrdenadas[maxIndex];
-            vitoriasOrdenadas[maxIndex] = tempV;
+            int auxPts = pontos[i];
+            pontos[i] = pontos[melhor];
+            pontos[melhor] = auxPts;
 
-            Team* tempT = timesOrdenados[i];
-            timesOrdenados[i] = timesOrdenados[maxIndex];
-            timesOrdenados[maxIndex] = tempT;
+            Team* auxTime = ranking[i];
+            ranking[i] = ranking[melhor];
+            ranking[melhor] = auxTime;
         }
     }
 
     for (int i = 0; i < numeroDeTimes; i++)
-    {
-        cout << timesOrdenados[i]->getNome() << " - " << vitoriasOrdenadas[i] << endl;
-    }
+        cout << ranking[i]->getNome() << " - " << pontos[i] << endl;
 
     cout << "----------------------------------------\n";
 
-    delete[] timesOrdenados;
-    delete[] vitoriasOrdenadas;
+    delete[] ranking;
+    delete[] pontos;
 }
 
 Team **Liga::getTimes()
